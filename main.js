@@ -432,14 +432,14 @@ timeline.push(survey_self_name);
 timeline.push(survey_other_name);
 timeline.push(instruction_test);
 timeline.push(trial_test01);
-timeline.push(instruction_nameIAT_prac01);
-timeline.push(trial_nameIAT_prac01);
-timeline.push(instruction_nameIAT_main01);
-timeline.push(trial_nameIAT_main01);
-timeline.push(instruction_nameIAT_prac02);
-timeline.push(trial_nameIAT_prac02);
-timeline.push(instruction_nameIAT_main02);
-timeline.push(trial_nameIAT_main02);
+//timeline.push(instruction_nameIAT_prac01);
+//timeline.push(trial_nameIAT_prac01);
+//timeline.push(instruction_nameIAT_main01);
+//timeline.push(trial_nameIAT_main01);
+//timeline.push(instruction_nameIAT_prac02);
+//timeline.push(trial_nameIAT_prac02);
+//timeline.push(instruction_nameIAT_main02);
+//timeline.push(trial_nameIAT_main02);
 
 
 timeline.push({
