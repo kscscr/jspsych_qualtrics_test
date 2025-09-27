@@ -180,23 +180,23 @@ var endmessage = {
 
 
 /* 実験の提示の順番 */
-var timeline = [];
+var timeline2= [];
 
 
 
-timeline.push({
+timeline2.push({
   type: 'fullscreen',
   fullscreen_mode: true
 });
-timeline.push(survey_self_name);
-timeline.push(survey_other_name);
-timeline.push(instruction_test);
-timeline.push(trial_test01);
+timeline2.push(survey_self_name);
+timeline2.push(survey_other_name);
+timeline2.push(instruction_test);
+timeline2.push(trial_test01);
 
 
-timeline.push({
+timeline2.push({
   type: 'fullscreen',
   fullscreen_mode: false
 });
 
-timeline.push(endmessage);
+timeline2.push(endmessage);
