@@ -4,15 +4,26 @@
 // var repo_site = "https://experiment.kscscr.com/personality_2022_04/";
 var repo_site = "Picture/";
 
+// // 0. 名前の保存の容器
+// let self_name01 = null;
+// let self_name02 = null;
+// let self_name03 = null;
+// let self_name04 = null;
+// let other_name01 = null;
+// let other_name02 = null;
+// let other_name03 = null;
+// let other_name04 = null;
+
 // 0. 名前の保存の容器
-let self_name01 = null;
-let self_name02 = null;
-let self_name03 = null;
-let self_name04 = null;
-let other_name01 = null;
-let other_name02 = null;
-let other_name03 = null;
-let other_name04 = null;
+var self_name01 = null;
+var self_name02 = null;
+var self_name03 = null;
+var self_name04 = null;
+var other_name01 = null;
+var other_name02 = null;
+var other_name03 = null;
+var other_name04 = null;
+
 
 //1. 名前の入力
 var survey_self_name = {
