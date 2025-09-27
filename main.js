@@ -30,10 +30,10 @@ var survey_self_name = {
   ],
   button_label: "次へ",
   on_finish: function(data){
-    self_name01 = JSON.parse(data.responses).name_up;
-    self_name02 = JSON.parse(data.responses).name_down;
-    self_name03 = JSON.parse(data.responses).name_handle;
-    self_name04 = JSON.parse(data.responses).name_nick;   
+    // self_name01 = JSON.parse(data.responses).name_up;
+    // self_name02 = JSON.parse(data.responses).name_down;
+    // self_name03 = JSON.parse(data.responses).name_handle;
+    // self_name04 = JSON.parse(data.responses).name_nick;   
   }
 };
 
@@ -68,10 +68,10 @@ var survey_other_name = {
   ],
   button_label_next: "次へ",
   on_finish: function(data){
-    other_name01 = JSON.parse(data.responses).name_01;
-    other_name02 = JSON.parse(data.responses).name_02;
-    other_name03 = JSON.parse(data.responses).name_03;
-    other_name04 = JSON.parse(data.responses).name_04;   
+    // other_name01 = JSON.parse(data.responses).name_01;
+    // other_name02 = JSON.parse(data.responses).name_02;
+    // other_name03 = JSON.parse(data.responses).name_03;
+    // other_name04 = JSON.parse(data.responses).name_04;   
   }
 
 
