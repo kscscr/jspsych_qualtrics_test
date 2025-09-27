@@ -1,32 +1,26 @@
-
-var scale = ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"];
-
-var likert_trial = {
-    type: 'survey-likert',
-    questions: [
-      {prompt: "I like vegetables.", name: 'Vegetables', labels: scale, required: true}, 
-      {prompt: "I like fruit.", name: 'Fruit', labels: scale, required: true}
-    ],
-};
-
-var likert_trial_random_order = {
-    type: 'survey-likert',
-    questions: [
-      {prompt: "Question 1", labels: scale}, 
-      {prompt: "Question 2", labels: scale},
-      {prompt: "Question 3", labels: scale},
-      {prompt: "Question 4", labels: scale},
-      {prompt: "Question 5", labels: scale}
-    ],
-    randomize_question_order: true,
-    scale_width: 500
-};
-
-
-
-/* 実験の提示の順番 */
+// timeline変数を定義
 var timeline = [];
 
-timeline.push(likert_trial);
-timeline.push(likert_trial_random_order);
+// 手順教示画面
+var instructions = {
+  type: 'instructions',
+  pages: [
+    '実験にご協力いただきありがとうございます。',
+    'この画面が表示されれば、基本的な設定は成功しています。',
+    'スペースキーを押して次に進んでください。'
+  ],
+  show_clickable_nav: true,
+  button_label_next: "次へ",
+  button_label_previous: "前へ"
+};
+
+// 終了画面
+var thank_you = {
+  type: 'html-keyboard-response',
+  stimulus: 'テストは正常に終了しました。Qualtricsの画面に戻ります。'
+};
+
+// タイムラインに上記の試行を追加
+timeline.push(instructions);
+timeline.push(thank_you);
 
