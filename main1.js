@@ -52,7 +52,7 @@ var survey_other_name = {
       required: true
     }
   ],
-  button_label_next: "次へ",
+  button_label: "次へ",
   on_finish: function(data){
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     let other_name01 = jsPsych.data.get().last(1).values()[0].response.name01;
