@@ -93,8 +93,8 @@ var survey_other_name02 = {
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     console.log(data.button_pressed);
     console.log(survey_other_name02.choices[data.button_pressed]);
-    other_name01 = survey_other_name02.choices[data.button_pressed]
-    jsPsych.data.addProperties({other_name01: other_name01});
+    other_name02 = survey_other_name02.choices[data.button_pressed]
+    jsPsych.data.addProperties({other_name02: other_name02});
   }
 };
 
@@ -108,8 +108,8 @@ var survey_other_name03 = {
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     console.log(data.button_pressed);
     console.log(survey_other_name03.choices[data.button_pressed]);
-    other_name01 = survey_other_name03.choices[data.button_pressed]
-    jsPsych.data.addProperties({other_name01: other_name01});
+    other_name03 = survey_other_name03.choices[data.button_pressed]
+    jsPsych.data.addProperties({other_name03: other_name03});
   }
 };
 
