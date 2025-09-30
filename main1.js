@@ -5,12 +5,6 @@ var repo_site = "Picture/";
 
 // 0. 名前の保存の容器
 // Qualtricsで変数の共有ができないので削除
-// let self_name01 = null;
-// let self_name02 = null;
-// let self_name03 = null;
-// let other_name01 = null;
-// let other_name02 = null;
-// let other_name03 = null;
 
 //1. 名前の入力
 var survey_self_name = {
@@ -124,13 +118,32 @@ var trial_nameIAT_prac01 = {
     {stimulus: "心地よい", stim_key_association: "left"},
 
     //修正：名前の呼び出し方を変更
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
+    // 修正：名前の呼び出し方変更
+    {stimulus: function(){
+      var sname01 = jsPsych.data.get().last(1).values()[0].self_name01;
+      return sname01;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname02 = jsPsych.data.get().last(1).values()[0].self_name02;
+      return sname02;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname03 = jsPsych.data.get().last(1).values()[0].self_name03;
+      return sname03;
+    }, stim_key_association: "left"},
 
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name01; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name02; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name03; }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname01 = jsPsych.data.get().last(1).values()[0].other_name01;
+      return oname01;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname02 = jsPsych.data.get().last(1).values()[0].other_name02;
+      return oname02;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname03 = jsPsych.data.get().last(1).values()[0].other_name03;
+      return oname03;
+    }, stim_key_association: "right"},
     ],
 
   randomize_order: true,
@@ -188,14 +201,31 @@ var trial_nameIAT_main01 = {
     {stimulus: "心地よい", stim_key_association: "left"},
 
     // 修正：名前の呼び出し方変更
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name02; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name03; }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname01 = jsPsych.data.get().last(1).values()[0].self_name01;
+      return sname01;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname02 = jsPsych.data.get().last(1).values()[0].self_name02;
+      return sname02;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname03 = jsPsych.data.get().last(1).values()[0].self_name03;
+      return sname03;
+    }, stim_key_association: "left"},
 
-
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name01; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name02; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name03; }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname01 = jsPsych.data.get().last(1).values()[0].other_name01;
+      return oname01;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname02 = jsPsych.data.get().last(1).values()[0].other_name02;
+      return oname02;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname03 = jsPsych.data.get().last(1).values()[0].other_name03;
+      return oname03;
+    }, stim_key_association: "right"},
     
     ],
   randomize_order: false,
@@ -254,13 +284,31 @@ var trial_nameIAT_prac02 = {
     {stimulus: "心地よい", stim_key_association: "right"},
 
     // 修正：名前の呼び出し方変更
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name02; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name03; }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname01 = jsPsych.data.get().last(1).values()[0].self_name01;
+      return sname01;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname02 = jsPsych.data.get().last(1).values()[0].self_name02;
+      return sname02;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname03 = jsPsych.data.get().last(1).values()[0].self_name03;
+      return sname03;
+    }, stim_key_association: "left"},
 
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name01; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name02; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name03; }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname01 = jsPsych.data.get().last(1).values()[0].other_name01;
+      return oname01;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname02 = jsPsych.data.get().last(1).values()[0].other_name02;
+      return oname02;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname03 = jsPsych.data.get().last(1).values()[0].other_name03;
+      return oname03;
+    }, stim_key_association: "right"},
 
     ],
   randomize_order: true,
@@ -317,13 +365,32 @@ var trial_nameIAT_main02 = {
     {stimulus: "心地よい", stim_key_association: "right"},
 
     // 修正：名前の呼び出し方変更
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name01; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name02; }, stim_key_association: "left"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].self_name03; }, stim_key_association: "left"},
+// 修正：名前の呼び出し方変更
+    {stimulus: function(){
+      var sname01 = jsPsych.data.get().last(1).values()[0].self_name01;
+      return sname01;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname02 = jsPsych.data.get().last(1).values()[0].self_name02;
+      return sname02;
+    }, stim_key_association: "left"},
+    {stimulus: function(){
+      var sname03 = jsPsych.data.get().last(1).values()[0].self_name03;
+      return sname03;
+    }, stim_key_association: "left"},
 
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name01; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name02; }, stim_key_association: "right"},
-    {stimulus: function(){ return jsPsych.data.get().last(1).values()[0].other_name03; }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname01 = jsPsych.data.get().last(1).values()[0].other_name01;
+      return oname01;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname02 = jsPsych.data.get().last(1).values()[0].other_name02;
+      return oname02;
+    }, stim_key_association: "right"},
+    {stimulus: function(){
+      var oname03 = jsPsych.data.get().last(1).values()[0].other_name03;
+      return oname03;
+    }, stim_key_association: "right"},
     
     ],
   randomize_order: false,
