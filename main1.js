@@ -56,9 +56,9 @@ var survey_other_name = {
   on_finish: function(data){
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
-    other_name01 = JSON.parse(data.responses).name01;
-    other_name02 = JSON.parse(data.responses).name02;
-    other_name03 = JSON.parse(data.responses).name03;
+    other_name01 = JSON.parse(data.responses).name_01;
+    other_name02 = JSON.parse(data.responses).name_02;
+    other_name03 = JSON.parse(data.responses).name_03;
 
     jsPsych.data.addProperties({other_name01: other_name01});
     jsPsych.data.addProperties({other_name02: other_name02});
@@ -437,7 +437,7 @@ timeline.push({
   fullscreen_mode: true
 });
 timeline.push(survey_self_name);
-// timeline.push(survey_other_name);
+timeline.push(survey_other_name);
 timeline.push(instruction_nameIAT_prac01);
 timeline.push(trial_nameIAT_prac01);
 timeline.push(instruction_nameIAT_main01);
