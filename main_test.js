@@ -69,12 +69,11 @@ var survey_self_name = {
 // };
 
 
-var multi_choice_block = {
-  type: 'survey-multi-choice',
-  questions: [
-    {prompt: "I like vegetables", name: 'Vegetables', options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], required:true}, 
-    {prompt: "I like fruit", name: 'Fruit', options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], required: false}
-  ],
+var trial = {
+    type: 'html-button-response',
+    stimulus: '<p>Running</p>',
+    choices: ['Healthy', 'Unhealthy'],
+    prompt: "<p>Is this activity healthy or unhealthy?</p>"
 };
 
 // 3. 名前ありIAT（自己 + 好ましい言葉 / 他者 + 好ましくない言葉）の練習試行の教示文
@@ -136,7 +135,7 @@ timeline.push({
 });
 timeline.push(survey_self_name);
 // timeline.push(survey_other_name);
-timeline.push(multi_choice_block);
+timeline.push(trial);
 
 timeline.push(instruction_nameIAT_prac01);
 // timeline.push(trial_nameIAT_prac01);
