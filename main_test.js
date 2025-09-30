@@ -37,23 +37,25 @@ var survey_other_name = {
       prompt: "あなたの姓と最も無関係だと思う名字を選択してください。", 
       name: 'name_01', 
       options: ['さとう', 'すずき', 'たかはし', 'たなか', 'いとう', 'わたなべ'], 
-      required: "True"
+      required: true
     }, 
     {
       prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
       name: 'name_02', 
       options: ['まこと', 'しょうた', 'はると', 'かずこ', 'ようこ', 'みさき'], 
-      required: "True"
+      required: true
     },
     {
       prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
       name: 'name_03', 
       options: ['きよし', 'だいすけ', 'れん', 'けいこ', 'あい', 'ひな'], 
-      required: "True"
+      required: true
     }
   ],
   button_label: "次へ",
   on_finish: function(data){
+    console.log(JSON.parse(data.responses).name_01);
+
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
     // other_name01 = JSON.parse(data.responses).name_01;
