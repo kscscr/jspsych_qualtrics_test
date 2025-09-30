@@ -437,7 +437,7 @@ timeline.push({
   fullscreen_mode: true
 });
 timeline.push(survey_self_name);
-timeline.push(survey_other_name);
+// timeline.push(survey_other_name);
 timeline.push(instruction_nameIAT_prac01);
 timeline.push(trial_nameIAT_prac01);
 timeline.push(instruction_nameIAT_main01);
