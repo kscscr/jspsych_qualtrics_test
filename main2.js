@@ -160,26 +160,26 @@ var endmessage = {
 
 
 /* 実験の提示の順番 */
-var timeline = [];
+var timeline2 = [];
 
 
 
-timeline.push({
+timeline2.push({
   type: 'fullscreen',
   fullscreen_mode: true
 });
 
-timeline.push(instruction_pronounIAT_main01);
-timeline.push(trial_pronounIAT_main01);
-timeline.push(instruction_pronounIAT_main02);
-timeline.push(trial_pronounIAT_main02);
+timeline2.push(instruction_pronounIAT_main01);
+timeline2.push(trial_pronounIAT_main01);
+timeline2.push(instruction_pronounIAT_main02);
+timeline2.push(trial_pronounIAT_main02);
 
 
 
-timeline.push({
+timeline2.push({
   type: 'fullscreen',
   fullscreen_mode: false
 });
 
-timeline.push(endmessage);
+timeline2.push(endmessage);
 
