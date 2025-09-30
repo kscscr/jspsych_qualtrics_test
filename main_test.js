@@ -69,13 +69,13 @@ var survey_self_name = {
 // };
 
 
-  var multi_choice_block = {
-    type: 'survey-multi-choice',
-    questions: [
-      {prompt: "I like vegetables", name: 'Vegetables', options: page_1_options, required:true}, 
-      {prompt: "I like fruit", name: 'Fruit', options: page_2_options, required: false}
-    ],
-  };
+var multi_choice_block = {
+  type: 'survey-multi-choice',
+  questions: [
+    {prompt: "I like vegetables", name: 'Vegetables', options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], required:true}, 
+    {prompt: "I like fruit", name: 'Fruit', options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], required: false}
+  ],
+};
 
 // 3. 名前ありIAT（自己 + 好ましい言葉 / 他者 + 好ましくない言葉）の練習試行の教示文
 var instruction_nameIAT_prac01 = {
