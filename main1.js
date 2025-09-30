@@ -70,6 +70,53 @@ var survey_other_name = {
 
 
 
+var survey_other_name01 = {
+    type: 'html-button-response',
+    stimulus: '<p>あなたの姓と最も無関係だと思う名字を選択してください。</p>',
+    choices: ['さとう', 'すずき', 'たかはし', 'たなか', 'いとう', 'わたなべ'],
+    prompt: "<p></p>",
+    on_finish: function(data){
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    console.log(data.button_pressed);
+    console.log(trial.choices[data.button_pressed]);
+    other_name01 = trial.choices[data.button_pressed]
+    jsPsych.data.addProperties({other_name01: other_name01});
+  }
+};
+
+
+var survey_other_name02 = {
+    type: 'html-button-response',
+    stimulus: '<p>あなたの名と最も無関係だと思う名前を選択してください。</p>',
+    choices: ['まこと', 'しょうた', 'はると', 'かずこ', 'ようこ', 'みさき'],
+    prompt: "<p></p>",
+    on_finish: function(data){
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    console.log(data.button_pressed);
+    console.log(trial.choices[data.button_pressed]);
+    other_name01 = trial.choices[data.button_pressed]
+    jsPsych.data.addProperties({other_name01: other_name01});
+  }
+};
+
+
+var survey_other_name03 = {
+    type: 'html-button-response',
+    stimulus: '<p>あなたの名と最も無関係だと思う名前を選択してください。</p>',
+    choices: ['きよし', 'だいすけ', 'れん', 'けいこ', 'あい', 'ひな'],
+    prompt: "<p></p>",
+    on_finish: function(data){
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    console.log(data.button_pressed);
+    console.log(trial.choices[data.button_pressed]);
+    other_name01 = trial.choices[data.button_pressed]
+    jsPsych.data.addProperties({other_name01: other_name01});
+  }
+};
+
+
+
+
 // 3. 名前ありIAT（自己 + 好ましい言葉 / 他者 + 好ましくない言葉）の練習試行の教示文
 var instruction_nameIAT_prac01 = {
   type: "html-keyboard-response",
@@ -438,6 +485,9 @@ timeline.push({
 });
 timeline.push(survey_self_name);
 // timeline.push(survey_other_name);
+timeline.push(survey_other_name01);
+timeline.push(survey_other_name02);
+timeline.push(survey_other_name03);
 timeline.push(instruction_nameIAT_prac01);
 timeline.push(trial_nameIAT_prac01);
 timeline.push(instruction_nameIAT_main01);
