@@ -29,48 +29,53 @@ var survey_self_name = {
   }
 };
 
-// 2. 自分と遠いと思う名前を選択する
-var survey_other_name = {
-  type: 'survey-multi-choice',
-  questions: [
-    {
-      prompt: "あなたの姓と最も無関係だと思う名字を選択してください。", 
-      name: 'name_01', 
-      options: ['さとう', 'すずき', 'たかはし', 'たなか', 'いとう', 'わたなべ'], 
-      required: true
-    }, 
-    {
-      prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
-      name: 'name_02', 
-      options: ['まこと', 'しょうた', 'はると', 'かずこ', 'ようこ', 'みさき'], 
-      required: true
-    },
-    {
-      prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
-      name: 'name_03', 
-      options: ['きよし', 'だいすけ', 'れん', 'けいこ', 'あい', 'ひな'], 
-      required: true
-    }
-  ],
-  button_label: "次へ",
-  on_finish: function(data){
-    console.log(JSON.parse(data.responses).name_01);
+// // 2. 自分と遠いと思う名前を選択する
+// var survey_other_name = {
+//   type: 'survey-multi-choice',
+//   questions: [
+//     {
+//       prompt: "あなたの姓と最も無関係だと思う名字を選択してください。", 
+//       name: 'name_01', 
+//       options: ['さとう', 'すずき', 'たかはし', 'たなか', 'いとう', 'わたなべ'], 
+//       required: true
+//     }, 
+//     {
+//       prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
+//       name: 'name_02', 
+//       options: ['まこと', 'しょうた', 'はると', 'かずこ', 'ようこ', 'みさき'], 
+//       required: true
+//     },
+//     {
+//       prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
+//       name: 'name_03', 
+//       options: ['きよし', 'だいすけ', 'れん', 'けいこ', 'あい', 'ひな'], 
+//       required: true
+//     }
+//   ],
+//   button_label: "次へ",
+//   on_finish: function(data){
+//     console.log(JSON.parse(data.responses).name_01);
+//     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+//     other_name01 = JSON.parse(data.responses).name_01;
+//     other_name02 = JSON.parse(data.responses).name_02;
+//     other_name03 = JSON.parse(data.responses).name_03;
 
-    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
-    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
-    // other_name01 = JSON.parse(data.responses).name_01;
-    // other_name02 = JSON.parse(data.responses).name_02;
-    // other_name03 = JSON.parse(data.responses).name_03;
-
-    // jsPsych.data.addProperties({other_name01: other_name01});
-    // jsPsych.data.addProperties({other_name02: other_name02});
-    // jsPsych.data.addProperties({other_name03: other_name03});
-  }
+//     jsPsych.data.addProperties({other_name01: other_name01});
+//     jsPsych.data.addProperties({other_name02: other_name02});
+//     jsPsych.data.addProperties({other_name03: other_name03});
+//   }
 
 
-};
+// };
 
 
+  var multi_choice_block = {
+    type: 'survey-multi-choice',
+    questions: [
+      {prompt: "I like vegetables", name: 'Vegetables', options: page_1_options, required:true}, 
+      {prompt: "I like fruit", name: 'Fruit', options: page_2_options, required: false}
+    ],
+  };
 
 // 3. 名前ありIAT（自己 + 好ましい言葉 / 他者 + 好ましくない言葉）の練習試行の教示文
 var instruction_nameIAT_prac01 = {
@@ -130,7 +135,9 @@ timeline.push({
   fullscreen_mode: true
 });
 timeline.push(survey_self_name);
-timeline.push(survey_other_name);
+// timeline.push(survey_other_name);
+timeline.push(multi_choice_block);
+
 timeline.push(instruction_nameIAT_prac01);
 // timeline.push(trial_nameIAT_prac01);
 // timeline.push(instruction_nameIAT_main01);
