@@ -1,543 +1,112 @@
+// 新しいカタチで名前を保存するもの
+// 可読性向上と編集のしやすさのために
 
-var repo_site = "https://experiment.kscscr.com/IAT_SD_2022_07/";
+var repo_site = "Picture/";
 
-//教示文を読んで入力してもらう
-var iat_instruction_test = {
-  type: "html-keyboard-response",
-  stimulus:"<img src='" + repo_site + "/pic/Picture03.jpg' width='60%'>"+"<p style = 'font-size:1.5em; text-align: center'>練習です</p>"+"<p>キーボードを利用した単語の分類課題を行います。</p>"+"<p>画面中央に表示される単語が、左上の<b>「よい」</b>または<b>「虫」</b>のカテゴリーに当てはまると思ったら<b>「E」</b>キーを、<br>右上の<b>「わるい」</b>のカテゴリーに当てはまると思ったら<b>「I」</b>キーを押してください。</p>"+ "<p><b>左右のカテゴリーは固定で、中央の単語が変わります。</b></p>"+"<p>間違えるとX（バツ）が中央に表示されるので、押したキーと反対のキーを押してください</br><b>スペースキー</b>を押すと開始します。</p>"+"<p style = 'font-size: 1.5em;'>単語が表示されたら、なるべく早く回答してください。</p>",
-  choices: ["space"]
-};
+// 0. 名前の保存の容器
+// Qualtricsで変数の共有ができないので削除
 
-var iat_instruction = {
-  type: "html-keyboard-response",
-  stimulus:"<img src='" + repo_site + "/pic/good.jpg' width='60%'>"+"<p style = 'font-size:1.5em; text-align: center'>本番です</p>"+"<p style = 'font-size: 2em;'><b>左右のカテゴリーが変わっています</b></p>"+"<p>キーボードを利用した単語の分類課題を行います。</p>"+"<p>画面中央に表示される単語が、左上の<b>「よい」</b>または<b>「あなた自身」</b>のカテゴリーに当てはまると思ったら<b>「E」</b>キーを、<br>右上の<b>「わるい」</b>のカテゴリーに当てはまると思ったら<b>「I」</b>キーを押してください。</p>"+ "<p><b>左右のカテゴリーは固定で、中央の単語が変わります。</b></p>"+"<p>間違えるとX（バツ）が中央に表示されるので、押したキーと反対のキーを押してください</br><b>スペースキー</b>を押すと開始します。</p>"+"<p style = 'font-size: 1.5em;'>単語が表示されたら、なるべく早く回答してください。</p>",
-  choices: ["space"]
-};
-
-var iat_brakegood = {
-  type: "html-keyboard-response",
-  stimulus:"<img src='" + repo_site + "/pic/good.jpg' width='60%'>"+"<p style = 'font-size:1.5em; text-align: center'>休憩です</p>"+"<p>キーボードを利用した単語の分類課題を行います。</p>"+"<p>画面中央に表示される単語が、左上の<b>「よい」</b>または<b>「あなた自身」</b>のカテゴリーに当てはまると思ったら<b>「E」</b>キーを、<br>右上の「わるい」のカテゴリーに当てはまると思ったら<b>「I」</b>キーを押してください。</p>"+ "<p><b>左右のカテゴリーは固定で、中央の単語が変わります。</b></p>"+"<p>間違えるとX（バツ）が中央に表示されるので、押したキーと反対のキーを押してください</br><b>スペースキー</b>を押すと開始します。</p>"+"<p style = 'font-size: 1.5em;'>単語が表示されたら、なるべく早く回答してください。</p>",
-  choices: ["space"]
-};
-
-
-var iat_brakechange = {
-  type: "html-keyboard-response",
-  stimulus:"<img src='" + repo_site + "/pic/change.jpg' width='60%'>"+"<p style = 'font-size:1.5em; text-align: center'>休憩です</p>"+"<p>キーボードを利用した単語の分類課題を行います。</p>"+"<p style = 'font-size: 2em;'><b>左右のカテゴリーが変わっています</b></p>"+"<p>画面中央に表示される単語が、左上の<b>「よい」</b>カテゴリーに当てはまると思ったら<b>「E」</b>キーを、<br>右上の<b>「わるい」</b>又は<b>「あなた自身」</b>のカテゴリーに当てはまると思ったら<b>「I」</b>キーを押してください。</p>"+ "<p><b>左右のカテゴリーは固定で、中央の単語が変わります。</b></p>"+"<p>間違えるとX（バツ）が中央に表示されるので、押したキーと反対のキーを押してください</br><b>スペースキー</b>を押すと開始します。</p>"+"<p style = 'font-size: 1.5em;'>単語が表示されたら、なるべく早く回答してください。</p>",
-  choices: ["space"]
-};
-
-var iat_brakebad = {
-  type: "html-keyboard-response",
-  stimulus:"<img src='" + repo_site + "/pic/bad.jpg' width='60%'>"+"<p style = 'font-size:1.5em; text-align: center'>休憩です</p>"+"<p>キーボードを利用した単語の分類課題を行います。</p>"+"<p>画面中央に表示される単語が、左上の<b>「よい」</b>カテゴリーに当てはまると思ったら<b>「E」</b>キーを、<br>右上の<b>「わるい」</b>または<b>「あなた自身」</b>のカテゴリーに当てはまると思ったら<b>「I」</b>キーを押してください。</p>"+ "<p><b>左右のカテゴリーは固定で、中央の単語が変わります。</b></p>"+"<p>間違えるとX（バツ）が中央に表示されるので、押したキーと反対のキーを押してください</br><b>スペースキー</b>を押すと開始します。</p>"+"<p style = 'font-size: 1.5em;'>単語が表示されたら、なるべく早く回答してください。</p>",
-  choices: ["space"]
-};
-
-
-
+//1. 名前の入力
 var survey_self_name = {
   type: 'survey-text',
-  preamble: '次の単語の課題で使用するために、ご自身の名前などを質問します。' + '</br>ここで収集した名前については、次の課題でのみ使用し、分析には使用致しません。',
+  preamble: 'これから行う実験の課題で使用するために、ご自身の名前などを質問します。' +
+   '</br>ここで収集した名前については、実験の課題でのみ使用し、分析には使用致しません。',
   questions: [
-    {prompt: "名字（姓）を入力してください（例：田中 太郎さんなら、田中）", name: 'name_up', required:'True'}, 
-    {prompt: "名前（名）を入力してください（例：田中 太郎さんなら、太郎）",  name: 'name_down', required:"True"},
-    {prompt: "Web上でよく使うハンドルネームを入力してください</br>なければクラウドワークスのユーザー名を入力してください",  name: 'name_handle', required:"True"},
-    {prompt: "日常生活でよく呼ばれるニックネーム（あだ名など）を入力してください</br>ない場合は上3つと重複しても構いません",  name: 'name_nick', required:"True"},
-
+    {prompt: "名字（姓）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、やまだ）",name: 'name_up', required:"True"}, 
+    {prompt: "名前（名）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、たろう）",  name: 'name_down', required:"True"},
+    {prompt: "イニシャルを<u>名.姓の順に大文字アルファベットで</u>入力してください（例：山田 太郎さんなら、T.Y）",  name: 'name_initial', required:"True"},
   ],
   button_label: "次へ",
   on_finish: function(data){
-    nameup = JSON.parse(data.responses).name_up;
-    namedo = JSON.parse(data.responses).name_down;
-    namehandle = JSON.parse(data.responses).name_handle;
-    namenick = JSON.parse(data.responses).name_nick;
-    jsPsych.data.addProperties({name01: nameup});
-    jsPsych.data.addProperties({name02: namedo});
-    jsPsych.data.addProperties({name03: namehandle});
-    jsPsych.data.addProperties({name04: namenick});
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    self_name01 = JSON.parse(data.responses).name_up;
+    self_name02 = JSON.parse(data.responses).name_down;
+    self_name03 = JSON.parse(data.responses).name_initial;
+
+    jsPsych.data.addProperties({self_name01: self_name01});
+    jsPsych.data.addProperties({self_name02: self_name02});
+    jsPsych.data.addProperties({self_name03: self_name03});
   }
 };
 
-
-
-//練習試行
-var trial_test01 = {
-  timeline:[
+// 2. 自分と遠いと思う名前を選択する
+var survey_other_name = {
+  type: 'survey-multi-choice',
+  questions: [
     {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>間違えるとバツが表示されます。バツが表示されたら反対のキーを押してください</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key: 'E',
-      right_category_key: 'I',
-      left_category_label: ["よい","虫"],
-      right_category_label: ["わるい"],
-      response_ends_trial: true
+      prompt: "あなたの姓と最も無関係だと思う名字を選択してください。", 
+      name: 'name_01', 
+      options: ['さとう', 'すずき', 'たかはし', 'たなか', 'いとう', 'わたなべ'], 
+      required: "True"
+    }, 
+    {
+      prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
+      name: 'name_02', 
+      options: ['まこと', 'しょうた', 'はると', 'かずこ', 'ようこ', 'みさき'], 
+      required: "True"
+    },
+    {
+      prompt: "あなたの名と最も無関係だと思う名前を選択してください。", 
+      name: 'name_03', 
+      options: ['きよし', 'だいすけ', 'れん', 'けいこ', 'あい', 'ひな'], 
+      required: "True"
     }
-    ],  
-  //IATで使う刺激
-  timeline_variables: [
-    /* 快語 */
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "価値のある", stim_key_association: "left"},
+  ],
+  button_label: "次へ",
+  on_finish: function(data){
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
+    // other_name01 = JSON.parse(data.responses).name_01;
+    // other_name02 = JSON.parse(data.responses).name_02;
+    // other_name03 = JSON.parse(data.responses).name_03;
 
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: "役立たず", stim_key_association: "right"},
+    // jsPsych.data.addProperties({other_name01: other_name01});
+    // jsPsych.data.addProperties({other_name02: other_name02});
+    // jsPsych.data.addProperties({other_name03: other_name03});
+  }
 
-    {stimulus: "カブトムシ", stim_key_association: "left"},
-    {stimulus: "バッタ", stim_key_association: "left"},
-    {stimulus: "クワガタ", stim_key_association: "left"},
-    {stimulus: "ハチ", stim_key_association: "left"}
-    ],
-  randomize_order: true,
-  repetitions: 1
+
 };
 
 
-// SC-IAT：研究1バージョン
-//Block1:self+good vs bad
-var trial01_prac01 = {
-  timeline:[
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>間違えるとバツが表示されます。バツが表示されたら反対のキーを押してください</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key: 'E',
-      right_category_key: 'I',
-      left_category_label: ["よい","あなた自身"],
-      right_category_label: ["わるい"],
-      response_ends_trial: true
-    }
-    ],  
-  //IATで使う刺激
-  timeline_variables: [
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: "駄目な ", stim_key_association: "right"},
 
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-
-    {stimulus: function(){
-    var named = jsPsych.data.get().last(1).values()[0].name01;
-    return named;
-    }, stim_key_association: "left"},
-  {stimulus: function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-  {stimulus: function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-  {stimulus: function(){
-    var named = jsPsych.data.get().last(1).values()[0].name04;
-    return named;
-    }, stim_key_association: "left"}
-      ],
-      
-  randomize_order: true,
-  repetitions: 1
-};
-
-var trial01_prac02 = {
-  timeline:[
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>間違えるとバツが表示されます。バツが表示されたら反対のキーを押してください</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key: 'E',
-      right_category_key: 'I',
-      left_category_label: ["よい"],
-      right_category_label: ["わるい","あなた自身"],
-      response_ends_trial: true
-    }
-    ],  
-  //IATで使う刺激
-  timeline_variables: [
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-
-
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name02;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name03;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"}
-    ],
-  randomize_order: true,
-  repetitions: 1
-};
-
-//外国人+良い：本試行
-var trial01_main01 = {
-  timeline:[
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>間違えるとバツが表示されます。バツが表示されたら反対のキーを押してください</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key: 'E',
-      right_category_key: 'I',
-      left_category_label: ["よい","あなた自身"],
-      right_category_label: ["わるい"],
-      response_ends_trial: true
-    }
-    ],  
-  //IATで使う刺激
-  timeline_variables: [
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "駄目な ", stim_key_association: "right"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus: "駄目な ", stim_key_association: "right"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: "駄目な ", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "left"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "left"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "left"},
-    ],
-  randomize_order: false,
-  repetitions: 1
-};
-
-//外国人+悪い：本試行
-var trial01_main02 = {
-  timeline:[
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>間違えるとバツが表示されます。バツが表示されたら反対のキーを押してください</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key: 'E',
-      right_category_key: 'I',
-      left_category_label: ["よい"],
-      right_category_label: ["わるい", "あなた自身"],
-      response_ends_trial: true
-    }
-    ],  
-  //IATで使う刺激
-  timeline_variables: [
-    {stimulus: "駄目な ", stim_key_association: "right"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "駄目な ", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus: "惨めな", stim_key_association: "right"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus: "好ましい", stim_key_association: "left"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "秀でた", stim_key_association: "left"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "役立たず", stim_key_association: "right"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus: "無能", stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "有能", stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "嫌らしい", stim_key_association: "right"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus: "劣った", stim_key_association: "right"},
-    {stimulus: "敗北", stim_key_association: "right"},
-    {stimulus: "優れた", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: "不要な", stim_key_association: "right"},
-    {stimulus: "必要な", stim_key_association: "left"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "軽蔑", stim_key_association: "right"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "誇らしい", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name03;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-    {stimulus: "愚かな", stim_key_association: "right"},
-    {stimulus: "価値のある", stim_key_association: "left"},
-    {stimulus:  function(){
-    var named = jsPsych.data.get().last(1).values()[0].name02;
-    return named;
-    }, stim_key_association: "right"},
-    {stimulus: "成功", stim_key_association: "left"},
-    {stimulus: function(){
-      var named = jsPsych.data.get().last(1).values()[0].name01;
-      return named;
-      }, stim_key_association: "right"},
-    {stimulus: "素晴らしい", stim_key_association: "left"},
-    {stimulus: "尊敬", stim_key_association: "left"},
-    {stimulus:  function(){
-      var named = jsPsych.data.get().last(1).values()[0].name04;
-      return named;
-      }, stim_key_association: "right"},
-    
-    ],
-  randomize_order: false,
-  repetitions: 1
+// 3. 名前ありIAT（自己 + 好ましい言葉 / 他者 + 好ましくない言葉）の練習試行の教示文
+var instruction_nameIAT_prac01 = {
+  type: "html-keyboard-response",
+  stimulus:"<img src='" + repo_site + "good.jpg' width='60%'>"+
+  '<p style="text-align: center;">名前の入力へのご協力ありがとうございました。これから行う課題は、単語の分類課題です。下記の文章をよく確認してください。</p><br>'+
+    '<p>画面中央に表示される単語が、<b>左上の[自己」または「好ましい言葉」のカテゴリーに当てはまると思ったら「E」キー</b>を、</p>'+
+  '<p><b>右上の「他者」または「好ましくない言葉」のカテゴリーに当てはまると思ったら「I」キー</b>を押してください。</p><br>' +
+  "左右のカテゴリーは固定で、中央の単語が変わります。<br>"+
+ '間違えると×（バツ）が中央に表示されるので、押したキーと反対のキーを押してください。<br>'+
+ '単語が表示されたら、<u>できるだけ速く正確に</u>回答してください。<br>'+
+ 'そのために、左右の中指をEとIのキーの上にあらかじめのせておいてください。<br>'+
+ "<br>まずは練習を行います。準備がよろしければ、課題を開始してください。</p>" +
+ "<p style = 'color: red; font-size: 0.8em;'>スペースキーを押すと開始します</p>",
+  choices: ["space"]
 };
 
 
 
 
 
+// 11. 名前ありIATの終了メッセージ
+var endmessage_nameIAT = {
+  type: 'instructions',
+  pages: ["<p>この課題はこれで終了になります</p>"+
+  "<p>「次へ」をクリックして次へ進んでください</p>"
+  ],
+  allow_backward: false,
+  show_clickable_nav: true,
+  button_label_next: "次へ"
+  
+};
+
+
+
+
+
+// 16. IAT課題の終了メッセージ
 var endmessage = {
     type: 'instructions',
     pages: ["<p>この課題はこれで終了になります</p>"+"<p>「次へ」をクリックして次へ進んでください</p>"
@@ -548,20 +117,10 @@ var endmessage = {
     
 };
 
-var endmessage = {
-    type: 'instructions',
-    pages: ["<p>次の画面で「クラウドワークス」に入力してもらうためのコードが表示されます。</p>"
-    ],
-    allow_backward: false,
-    show_clickable_nav: true,
-    button_label_next: "次へ"
-    
-};
-
-
 
 /* 実験の提示の順番 */
 var timeline = [];
+
 
 
 timeline.push({
@@ -569,16 +128,15 @@ timeline.push({
   fullscreen_mode: true
 });
 timeline.push(survey_self_name);
-timeline.push(iat_instruction_test);
-timeline.push(trial_test01);
-timeline.push(iat_instruction);
-timeline.push(trial01_prac01);
-timeline.push(iat_brakegood);
-timeline.push(trial01_main01);
-timeline.push(iat_brakechange);
-timeline.push(trial01_prac02);
-timeline.push(iat_brakebad);
-timeline.push(trial01_main02);
+timeline.push(survey_other_name);
+timeline.push(instruction_nameIAT_prac01);
+// timeline.push(trial_nameIAT_prac01);
+// timeline.push(instruction_nameIAT_main01);
+// timeline.push(trial_nameIAT_main01);
+// timeline.push(instruction_nameIAT_prac02);
+// timeline.push(trial_nameIAT_prac02);
+// timeline.push(instruction_nameIAT_main02);
+// timeline.push(trial_nameIAT_main02);
 
 
 timeline.push({
@@ -587,3 +145,4 @@ timeline.push({
 });
 
 timeline.push(endmessage);
+
