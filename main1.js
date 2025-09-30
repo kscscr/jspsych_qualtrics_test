@@ -12,9 +12,9 @@ var survey_self_name = {
   preamble: 'これから行う実験の課題で使用するために、ご自身の名前などを質問します。' +
    '</br>ここで収集した名前については、実験の課題でのみ使用し、分析には使用致しません。',
   questions: [
-    {prompt: "名字（姓）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、やまだ）",name: 'name_up', required:'True'}, 
-    {prompt: "名前（名）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、たろう）",  name: 'name_down', required:"True"},
-    {prompt: "イニシャルを<u>名.姓の順に大文字アルファベットで</u>入力してください（例：山田 太郎さんなら、T.Y）",  name: 'name_initial', required:"True"},
+    {prompt: "名字（姓）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、やまだ）",name: 'name_up', required:true}, 
+    {prompt: "名前（名）を<u>ひらがなで</u>入力してください（例：山田 太郎さんなら、たろう）",  name: 'name_down', required:true},
+    {prompt: "イニシャルを<u>名.姓の順に大文字アルファベットで</u>入力してください（例：山田 太郎さんなら、T.Y）",  name: 'name_initial', required:true},
   ],
   button_label: "次へ",
   on_finish: function(data){
