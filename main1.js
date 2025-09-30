@@ -19,9 +19,9 @@ var survey_self_name = {
   button_label: "次へ",
   on_finish: function(data){
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
-    let self_name01 = JSON.parse(data.responses).name_up;
-    let self_name02 = JSON.parse(data.responses).name_down;
-    let self_name03 = JSON.parse(data.responses).name_initial;
+    let self_name01 = jsPsych.data.get().last(1).values()[0].response.name_up;
+    let self_name02 = jsPsych.data.get().last(1).values()[0].response.name_down;
+    let self_name03 = jsPsych.data.get().last(1).values()[0].response.name_initial;
 
     jsPsych.data.addProperties({self_name01: self_name01});
     jsPsych.data.addProperties({self_name02: self_name02});
@@ -55,9 +55,10 @@ var survey_other_name = {
   button_label_next: "次へ",
   on_finish: function(data){
     // 修正：保存方法の修正（jsPsych内部のデータに入れるようにする）
-    let other_name01 = JSON.parse(data.responses).name_01;
-    let other_name02 = JSON.parse(data.responses).name_02;
-    let other_name03 = JSON.parse(data.responses).name_03;
+    let other_name01 = jsPsych.data.get().last(1).values()[0].response.name01;
+    let other_name02 = jsPsych.data.get().last(1).values()[0].response.name02;
+    let other_name03 = jsPsych.data.get().last(1).values()[0].response.name03;
+
 
     jsPsych.data.addProperties({other_name01: other_name01});
     jsPsych.data.addProperties({other_name02: other_name02});
