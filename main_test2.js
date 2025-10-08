@@ -3,7 +3,27 @@
 
 var repo_site = "Picture/";
 
-console.log("これは動いている");
+
+var test01 = {
+  type: 'html-keyboard-response',
+  stimulus:"<img src='" + repo_site + "bad.jpg' width='60%'>"+
+  '<p style="text-align: center;">お疲れさまでした。次の課題では<u>分類するカテゴリーが先ほどとは異なります</u>ので、下記の文章をよく確認してください。</p><br>'+
+    '<p>画面中央に表示される単語が、<b>左上の[私」または「好ましい言葉」のカテゴリーに当てはまると思ったら「E」キー</b>を、</p>'+
+  '<p><b>右上の「私でない」または「好ましくない言葉」のカテゴリーに当てはまると思ったら「I」キー</b>を押してください。</p><br>' +
+  "左右のカテゴリーは固定で、中央の単語が変わります。<br>"+
+ '間違えると×（バツ）が中央に表示されるので、押したキーと反対のキーを押してください。<br>'+
+ '単語が表示されたら、<u>できるだけ速く正確に</u>回答してください。<br>'+
+ 'そのために、左右の中指をEとIのキーの上にあらかじめのせておいてください。<br>'+
+ "<br>それでは本番を行います。準備がよろしければ、課題を開始してください。</p>" +
+ "<p style = 'color: red; font-size: 0.8em;'>スペースキーを押すと開始します</p>",
+  stimulus_duration: 10,
+  choices:[' '],
+  on_finish: function(data){
+    console.log("どうさしている");
+  }
+};
+
+
 
 // 12. 代名詞IATの本番試行（私 + 好ましい言葉 / 私でない + 好ましくない言葉）の教示
 var instruction_pronounIAT_main01 = {
@@ -169,6 +189,7 @@ timeline2.push({
   fullscreen_mode: true
 });
 
+timeline2.push(test01);
 timeline2.push(instruction_pronounIAT_main01);
 timeline2.push(trial_pronounIAT_main01);
 timeline2.push(instruction_pronounIAT_main02);
