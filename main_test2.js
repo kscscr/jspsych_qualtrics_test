@@ -3,7 +3,7 @@
 
 var repo_site = "Picture/";
 
-
+console.log("これは動いている");
 
 // 12. 代名詞IATの本番試行（私 + 好ましい言葉 / 私でない + 好ましくない言葉）の教示
 var instruction_pronounIAT_main01 = {
