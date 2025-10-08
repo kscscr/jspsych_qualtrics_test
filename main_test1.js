@@ -118,17 +118,17 @@ var endmessage = {
 var timeline = [];
 
 
-timeline.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
-timeline.push(survey_self_name);
+// timeline.push({
+//   type: 'fullscreen',
+//   fullscreen_mode: true
+// });
+// timeline.push(survey_self_name);
 timeline.push(iat_instruction_test);
-timeline.push(trial_test01);
+// timeline.push(trial_test01);
 timeline.push(iat_instruction);
-timeline.push({
-  type: 'fullscreen',
-  fullscreen_mode: false
-});
+// timeline.push({
+//   type: 'fullscreen',
+//   fullscreen_mode: false
+// });
 
 timeline.push(endmessage);
